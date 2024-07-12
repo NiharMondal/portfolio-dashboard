@@ -50,6 +50,10 @@ export type TBlogResponse = {
     updatedAt:string;
 };
 
+export type TLoginCredentials = {
+	email: string;
+	password: string;
+}
 
 
 
@@ -58,3 +62,5 @@ export type TResponseFromServer<T> = {
     message:string;
     data: T
 }
+
+

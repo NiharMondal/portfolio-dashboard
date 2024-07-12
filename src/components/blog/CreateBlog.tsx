@@ -36,7 +36,7 @@ export default function CreateBlog() {
 					<input
 						{...register("title", { required: true })}
 						type="text"
-						placeholder="Project Title"
+						placeholder="Blog Title"
 						className="input input-bordered w-full"
 					/>
 
@@ -44,7 +44,7 @@ export default function CreateBlog() {
 				</div>
 
 				<button className="btn btn-primary" type="submit">
-					Create Project
+					Create Blog
 				</button>
 			</form>
 		</FullModal>

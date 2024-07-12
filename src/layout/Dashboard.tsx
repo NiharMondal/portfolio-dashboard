@@ -1,6 +1,8 @@
 import { Outlet } from "react-router-dom";
 import { RiMenu2Fill } from "@remixicon/react";
 import { Link } from "react-router-dom";
+import TopBar from "./TopBar";
+import logo from "../assets/icon/big_icon.png";
 const navLinks = ["Blog", "Project", "Experience", "Skills"];
 
 export default function Dashboard() {
@@ -15,12 +17,14 @@ export default function Dashboard() {
 					className="drawer-overlay"
 				></label>
 				<div className="menu min-h-full bg-base-200 w-80 p-4">
-					<div className="text-center pt-10 md:pt-0">Logo</div>
+					<div className="text-center pt-5 md:pt-0 flex justify-center">
+						<img src={logo} alt="logo" className="size-[150px]" />
+					</div>
 					<ul className="mt-10">
 						{navLinks.map((link) => (
 							<Link
 								key={link}
-								to={`/${link.toLowerCase()}`}
+								to={`/dashboard/${link.toLowerCase()}`}
 								className="block py-2 pl-5 hover:bg-gray-700 rounded"
 							>
 								{link}
@@ -32,11 +36,12 @@ export default function Dashboard() {
 			<div className="drawer-content relative min-w-full">
 				{/* Page content here */}
 				<div className="p-4 relative">
+					<TopBar />
 					<Outlet />
 				</div>
 				<label
 					htmlFor="my-drawer-2"
-					className="btn drawer-button lg:hidden absolute top-2 right-0"
+					className="btn drawer-button lg:hidden absolute top-3 left-0"
 				>
 					<RiMenu2Fill />
 				</label>

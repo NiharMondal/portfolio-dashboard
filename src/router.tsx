@@ -1,12 +1,17 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import Dashboard from "./layout/Dashboard";
 import NotFound from "./pages/NotFound";
-import { Blog, Experience, Project, Skills } from "./pages";
+import { Blog, Experience, Login, Project, Skills } from "./pages";
+import ProtectedRoute from "./layout/ProtectedRoute";
 
 export const router = createBrowserRouter([
 	{
-		path: "/",
-		element: <Dashboard />,
+		path: "/dashboard",
+		element: (
+			<ProtectedRoute>
+				<Dashboard />
+			</ProtectedRoute>
+		),
 		errorElement: <NotFound />,
 		children: [
 			{
@@ -17,7 +22,7 @@ export const router = createBrowserRouter([
 				path: "blog",
 				element: <Blog />,
 			},
-			
+
 			{
 				path: "experience",
 				element: <Experience />,
@@ -32,6 +37,13 @@ export const router = createBrowserRouter([
 			},
 		],
 	},
+	{
+		path: "/login",
+		element: <Login />,
+	},
+	
+	{ path: "/", element: <Navigate to={"/login"} replace={true} /> },
+
 	{ path: "*", element: <NotFound /> },
 	{ path: "*", element: <Navigate to={"/not-found"} replace={true} /> },
 ]);

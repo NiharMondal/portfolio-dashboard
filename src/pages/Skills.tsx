@@ -10,7 +10,7 @@ import GeneralModal from "../components/shared/GeneralModal";
 
 export default function Skills() {
 	const [skillValue, setSkillValue] = useState("");
-	const { data } = useAllSkillsQuery();
+	const { data:skills, isLoading } = useAllSkillsQuery();
 
 	const [createSkill] = useCreateSkillMutation();
 	const [deleteSkill] = useDeleteSkillMutation();
@@ -50,7 +50,8 @@ export default function Skills() {
 			<p>You can add more or delete any specific skill from this list</p>
 
 			<ul className="flex flex-wrap gap-4 mt-8">
-				{data?.data.map((skill) => (
+				{isLoading && <p>Please wait...</p>}
+				{skills?.data.map((skill) => (
 					<li
 						key={skill.id}
 						className="flex gap-2 items-center bg-primary px-4 py-2 text-white font-bold rounded"

@@ -12,19 +12,19 @@ export default function CreateProject() {
 
 	const [createProject] = useCreateProjectMutation();
 	const [description, setDescription] = useState("");
-	const { register, handleSubmit ,reset} = useForm<TProject>();
+	const { register, handleSubmit, reset } = useForm<TProject>();
 
 	const onSubmit: SubmitHandler<TProject> = async (formValue) => {
 		try {
 			const projectData = { ...formValue, description };
 
 			const response = await createProject(projectData).unwrap();
-
+			console.log(response);
 			if (response.data.id) {
 				modalRef.current?.close();
 				toast.success("Project created successfully");
 				reset();
-				setDescription("")
+				setDescription("");
 			}
 		} catch (error) {
 			console.log(error);
