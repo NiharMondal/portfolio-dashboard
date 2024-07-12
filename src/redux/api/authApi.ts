@@ -1,4 +1,4 @@
-import { TCredentials, TResponseFromServer } from "../../types";
+import {  TLoginCredentials, TResponseFromServer } from "../../types";
 import { baseApi } from "./baseApi";
 type LoginResponse = {
     id: string;
@@ -8,7 +8,7 @@ type LoginResponse = {
 const authApi = baseApi.injectEndpoints({
 	endpoints: (builder) => ({
         
-        login : builder.mutation<TResponseFromServer<LoginResponse>, TCredentials>({
+        login : builder.mutation<TResponseFromServer<LoginResponse>, TLoginCredentials>({
             query: (payload)=>({
                 url:"/auth/login",
                 method:"POST",
