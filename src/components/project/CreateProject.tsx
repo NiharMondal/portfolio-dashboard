@@ -46,6 +46,24 @@ export default function CreateProject() {
 						placeholder="Project Title"
 						className="input input-bordered w-full"
 					/>
+					<input
+						{...register("live_link", { required: true })}
+						type="text"
+						placeholder="Live Link"
+						className="input input-bordered w-full"
+					/>
+					<input
+						{...register("front_end", { required: true })}
+						type="text"
+						placeholder="Front end github link"
+						className="input input-bordered w-full"
+					/>
+					<input
+						{...register("back_end", { required: true })}
+						type="text"
+						placeholder="Back end github link"
+						className="input input-bordered w-full"
+					/>
 
 					<TextEditor value={description} setValue={setDescription} />
 				</div>

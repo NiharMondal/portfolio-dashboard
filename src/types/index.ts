@@ -22,6 +22,9 @@ export type TProject = {
 	title: string;
 	description: string;
 	photo: string;
+	live_link:string;
+	front_end: string;
+	back_end: string;
 };
 
 export type TProjectResponse = {
@@ -29,6 +32,9 @@ export type TProjectResponse = {
 	title: string;
 	photo: string;
 	description: string;
+	live_link:string;
+	front_end: string;
+	back_end?: string;
     slug:string;
     createdAt:string;
     updatedAt:string;
