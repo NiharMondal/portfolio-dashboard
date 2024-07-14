@@ -59,7 +59,7 @@ export default function CreateProject() {
 						className="input input-bordered w-full"
 					/>
 					<input
-						{...register("back_end", { required: true })}
+						{...register("back_end")}
 						type="text"
 						placeholder="Back end github link"
 						className="input input-bordered w-full"
